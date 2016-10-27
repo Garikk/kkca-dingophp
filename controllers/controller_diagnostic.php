@@ -6,10 +6,10 @@ class Controller_diagnostic extends Controller {
         $this->view = new View();
         $this->model = new model_diagnostic();
     }
- 
+
 
     function action_index() {
-        $this->view->generate('diagnostic_view.php', 'template_bs_adm_view.php', null);
+        $this->view->generate('diagnostic_view.php', 'template_view.php', null);
     }
 
     function action_getliveinfo() {

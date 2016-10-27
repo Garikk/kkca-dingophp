@@ -14,7 +14,7 @@ class Controller_Admin extends Controller
 		*/
 		if ( $_SESSION['admin'] == "12345" )
 		{
-			$this->view->generate('admin_view.php', 'template_bs_adm_view.php');
+			$this->view->generate('admin_view.php', 'template_view.php');
 		}
 		else
 		{
