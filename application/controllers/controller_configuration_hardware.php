@@ -10,7 +10,7 @@ class Controller_configuration extends Controller {
 
     function action_index() {
         //$data = $this->model->get_data();		
-        $this->view->generate('configuration_view.php', 'template_bs_adm_view.php', null);
+        $this->view->generate('configuration_view.php', 'template_view.php', null);
     }
 
     function action_getactivecommands() {

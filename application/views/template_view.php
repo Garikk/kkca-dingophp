@@ -1,132 +1,81 @@
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <title>KKCoche Webservice</title>
-        <link rel="stylesheet" type="text/css" href="/css/style.css" />
-        <script src="/js/jquery.js" type="text/javascript"></script>
-        <script src="/js/kk.confinfo.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                UpdateRightBarConfigInfo();
-            })</script>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="header">
-                <div id="logo">
-                    <a href="/"><span class="kkletters">KK</span>Coche</a>
-                </div>
-                <div id="menu">
-                    <ul>
-                        <li class="first active"><a href="/">Главная</a></li>
-                        <li><a href="/diagnostic">Диагностика</a></li>
-                        <li><a href="/portfolio">Карта</a></li>
-                        <li><a href="/mplayer">Медиаплеер</a></li>
-                        <li class="last"><a href="/configuration">Конфигурация</a></li>
-                    </ul>
-                    <br class="clearfix" />
-                </div>
-            </div>
-            <div id="page">
-                <div id="sidebar">
-                    <div class="side-box">
-                        <h3>Основное меню</h3>
-                        <ul class="list">
-                            <li class="first "><a href="/">Главная</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="sidebar_right">
-                    <div id="kk_config_carinfo">
-                        <table>
-                            <tr>
-                                <td>Автомобиль</td>
-                                <td id="kk_config_confinfo_carname">---</td>
-                            </tr>
-                            <tr>
-                                <td>Конфигурация</td>
-                                <td id="kk_config_confinfo_confname"></td>
-                            </tr>
-                            <tr>
-                                <td>Версия (актуальная)</td>
-                                <td id="kk_config_confinfo_confversion_act"></td>
-                            </tr>
-                            <tr>
-                                <td>Версия (на контроллере)</td>
-                                <td id="kk_config_confinfo_confversion_kkc"></td>
-                            </tr>
-                            <tr>
-                                <td>Версия контроллера</td>
-                                <td id="kk_config_confinfo_kkversion"></td>
-                            </tr>
-                            <tr>
-                                <td>Версия ОС и Java</td>
-                                <td id="kk_config_confinfo_osandjava"></td>
-                            </tr>
-                            <tr>
-                                <td>Статус конфигурации</td>
-                                <td id="kk_config_confinfo_kkstate"></td>
-                            </tr>
-                            <tr>
-                                <td>Состояние авто</td>
-                                <td id="kk_config_confinfo_carstate"></td>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-                            </tr>
-                            <tr>
-                                <td>Контрольное напряжение</td>
-                                <td id="kk_config_confinfo_carvoltage"></td>
+    <title>Dashboard Template for Bootstrap</title>
 
-                            </tr>
-                            <tr>
-                                <td>Отметка актуальности</td>
-                                <td id="kk_config_confinfo_timestamp"></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div id="kk_config_actions">
-                        <table>
-                            <tr>
-                                <th>
-                                    Комманды контроллеру
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>Перезагрузка</td>
-                                <td><button>Выполнить</button></td>
-                            </tr>
-                            <tr>
-                                <td>Полное отключание</td>
-                                <td><button>Выполнить</button></td>
-                            </tr>
-                            <tr>
-                                <td>Обновление бинарных компонентов</td>
-                                <td><button>Выполнить</button></td>
-                            </tr>
-                            <tr>
-                                <td>Сброс к базовой конфигурации</td>
-                                <td><button>Выполнить</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div id="kk_kkcmd_commandslist">
-                        <h4>Команды контроллеру</h3>
-                            <select multiple id="kk_kkcmd_commandslist_list"></select>
-                            <button onclick="RequestActiveCommands()">Обновить</button>
-                    </div>
-                </div>
-                <div id="content">
-                    <div class="box">
-                        <?php include 'application/views/' . $content_view; ?>
+    <!-- Bootstrap core CSS -->
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
 
-                    </div>
-                </div>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+              <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div id="content">
+            <div class="box">
+                <?php include 'application/views/' . $content_view; ?>
 
             </div>
         </div>
-        <div id="footer">
-            <a href="/">Garikk Development</a> &copy; 2015</a>
     </div>
-</body>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>

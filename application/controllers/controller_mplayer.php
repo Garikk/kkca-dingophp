@@ -12,6 +12,6 @@ class Controller_mplayer extends Controller
 	function action_index()
 	{
 		//$data = $this->model->get_data();		
-		$this->view->generate('mplayer_view.php', 'template_bs_adm_view.php',null);
-	}  
+		$this->view->generate('mplayer_view.php', 'template_view.php', null);
+	}
 }

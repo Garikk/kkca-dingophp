@@ -35,7 +35,7 @@ class Controller_Login extends Controller
 			$data["login_status"] = "";
 		}
 		
-		$this->view->generate('login_view.php', 'template_bs_adm_view.php', $data);
+		$this->view->generate('login_view.php', 'template_mp_view.php', $data);
 	}
 	
 }
