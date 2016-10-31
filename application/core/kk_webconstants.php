@@ -48,3 +48,16 @@
         const PARAM_PHONEAPP_POST_REQUEST_ACT = "action";
         const PARAM_PHONEAPP_POST_REQUEST_MYUUID = "myid";
         const PARAM_PHONEAPP_POST_REQUEST_CONFUUID = "confuid";
+
+        
+        
+        
+           //MainWeb
+        //Login
+        
+       const PARAM_WEB_POST_ACTION = "action";
+       const PARAM_WEB_POST_LOGIN_LOGIN = "login";
+       const PARAM_WEB_POST_LOGIN_PASS = "pass";
+       
+       const ACT_WEB_LOGIN_LOGIN=1;
+       const ACT_WEB_LOGIN_LOGOFF=9;

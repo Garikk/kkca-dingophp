@@ -2,21 +2,35 @@
 
 class Controller_Login extends Controller
 {
-	
-	function action_index()
-	{
-		//$data["login_status"] = "";
 
+    function action_index() {
+        if (isset($_POST['action'])) {
+            return;
+        }
+        $action = (int) filter_input(INPUT_POST, PARAM_WEB_POST_ACTION);
+        $login = (int) filter_input(INPUT_POST, PARAM_WEB_POST_LOGIN_LOGIN);
+        $pass = (int) filter_input(INPUT_POST, PARAM_WEB_POST_LOGIN_PASS);
+
+        if ($action==ACT_WEB_LOGIN_LOGIN)
+        {
+            
+            
+        }
+        
+        
+        $this->view->generate('login_view.php', 'template_mp_view.php', $data);
+    }
+
+}
+
+//$data["login_status"] = "";
+/*
 		if(isset($_POST['login']) && isset($_POST['password']))
 		{
 			$login = $_POST['login'];
 			$password =$_POST['password'];
 			
-			/*
-			Производим аутентификацию, сравнивая полученные значения со значениями прописанными в коде.
-			Такое решение не верно с точки зрения безопсаности и сделано для упрощения примера.
-			Логин и пароль должны храниться в БД, причем пароль должен быть захеширован.
-			*/
+
 			if($login=="admin" && $password=="12345")
 			{
 				$data["login_status"] = "access_granted";
@@ -36,6 +50,4 @@ class Controller_Login extends Controller
 		}
 		
 		$this->view->generate('login_view.php', 'template_mp_view.php', $data);
-	}
-	
-}
+     */
