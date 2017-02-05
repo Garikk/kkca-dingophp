@@ -5,19 +5,18 @@
 function makeHash(pass)
 {
     if (pass === "") {
-        return ""
+        return "";
     }
 
-    var shaObj = new jsSHA("SHA-256", "TEXT");
-    shaObj.update(pass);
-    var hash = shaObj.getHash("HEX");
+    var hash = CryptoJS.SHA256(pass);
+    hash=hash.toString(CryptoJS.enc.Hex);
     return hash;
 }
 
 function loginToDingo()
 {
-    var hash=makeHash($("#mpt_passwordfield").val());
-     $.post(
+    var hash=makeHash($("#mpt_passfield").val());
+    $.post(
             "login",
             {
                 action: 1,
@@ -30,7 +29,7 @@ function loginToDingo()
 
 function onLoginToDingoAjax(data)
 {
-    
+    alert(data);
     
 }
 

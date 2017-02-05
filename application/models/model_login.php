@@ -26,19 +26,22 @@ class model_login extends Model {
     }
 
     public function make_authorization($login, $password) {
-        $link = getDBLink();
 
-        $Ret = $this->dbc->ExecQuery("SELECT"
-                . "     uid,"
-                . "     login,"
-                . "     status"
+        $hashcode = hash('sha256', $login . "dingo" . $password);
+        $query="SELECT"
+                . " COUNT('id') as cnt"
                 . " FROM"
                 . "     accounts"
                 . " WHERE"
-                . "     login='" . $username . "'"
+                . "     login='" . $login . "'"
                 . " AND"
-                . "     pass='" . $hashcode . "'");
-
+                . "     pass='" . $hashcode . "'"
+                . " AND"
+                . "     status=0";
+        
+        $result = $this->dbc->ExecQuery($query);
+        $Ret=$result[0]==0;
+        
         return $Ret;
     }
 

@@ -42,18 +42,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Dingo Car</a>
+            <a class="navbar-brand" href="#">Dingo Car</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input id="mpt_loginfield" type="text" placeholder="Login" class="form-control">
-            </div>
-            <div class="form-group">
-              <input id="mpt_passfield" type="password" placeholder="Password" class="form-control">
-            </div>
-              <button type="submit" class="btn btn-success" onclick="javascript:loginToDingo()">Войти</button>
-          </form>
+        <div id="navbar" class="navbar-collapse collapse" >
+            <form id="mpv_loginform" class="navbar-form navbar-right" method="post"  action="/login">
+                <div class="form-group">
+                    <input id="mpt_loginfield"  name="mpt_loginfield" type="text" placeholder="Login" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input id="mpt_passfield" name="mpt_passfield" type="password" placeholder="Password" class="form-control">
+                </div>
+                <input type="hidden" name="<?php echo PARAM_WEB_POST_ACTION ?>" value="<?php echo ACT_WEB_LOGIN_LOGIN ?>">
+                <input type="hidden" name="<?php echo PARAM_WEB_POST_LOGIN_SKIPLOGIN ?>" value="true">
+                <button type="submit" class="btn btn-success">Войти</button>
+            </form>
+             <form id="mpv_logoffform" class="navbar-form navbar-right" method="post"  action="/login">
+                 <label id="mpv_userlogin"></label>
+                 <input type="hidden" name="<?php echo PARAM_WEB_POST_ACTION ?>" value="<?php echo ACT_WEB_LOGIN_LOGOFF ?>">
+                 <input type="hidden" name="<?php echo PARAM_WEB_POST_LOGIN_SKIPLOGIN ?>" value="true">
+                 <a href="#" onclick="$(this).closest('form').submit()"><b>[Выход]</b></a>
+            </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -71,11 +79,15 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/js/kk.mainpage.js"></script>
     
-    <script src="/js/sha256.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/js/jquery.js"><\/script>')</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/kk.template.js"></script>
+    <script>
+        <?php $this->getTemplateJSVariables() ?>;
+        onMainTemplateLoad();
+    </script>
   </body>
 </html>

@@ -56,8 +56,18 @@
         //Login
         
        const PARAM_WEB_POST_ACTION = "action";
-       const PARAM_WEB_POST_LOGIN_LOGIN = "login";
-       const PARAM_WEB_POST_LOGIN_PASS = "pass";
+       const PARAM_WEB_POST_LOGIN_LOGIN = "mpt_loginfield";
+       const PARAM_WEB_POST_LOGIN_PASS = "mpt_passfield";
+       const PARAM_WEB_POST_LOGIN_SKIPLOGIN = "mpt_skiploginscreen";
        
        const ACT_WEB_LOGIN_LOGIN=1;
        const ACT_WEB_LOGIN_LOGOFF=9;
+       
+       
+       
+       
+       const SSN_AUTH_LOGIN="account";         //login id
+const SSN_AUTH_LOGIN_ID="account_id"; //link to db id
+const SSN_AUTH_ROLE="account_role"; // 10 - admin
+const SSN_AUTH_STATE="auth_state"; //true - false
+const SSN_ROUTE_CURRPAGE="page";

@@ -12,20 +12,19 @@ class View
 	*/
 	function generate($content_view, $template_view, $data = null)
 	{
-		
-		/*
-		if(is_array($data)) {
-			
-			// преобразуем элементы массива в переменные
-			extract($data);
-		}
-		*/
-		
-		/*
-		динамически подключаем общий шаблон (вид),
-		внутри которого будет встраиваться вид
-		для отображения контента конкретной страницы.
-		*/
 		include 'application/views/'.$template_view;
 	}
+        function getTemplateJSVariables()
+        {
+            
+            if (session_status()!= PHP_SESSION_NONE && $_SESSION[SSN_AUTH_STATE]==true)
+            {
+                $Ret="mpv_AuthState=true;mpv_UserName='".$_SESSION[SSN_AUTH_LOGIN]."'";
+            }
+            else
+            {
+                $Ret="mpv_AuthState=false;mpv_UserName=''";
+            }
+            echo $Ret;
+        }
 }
