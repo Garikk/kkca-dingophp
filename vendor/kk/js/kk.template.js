@@ -33,3 +33,7 @@ function onMainTemplateLoad()
     }
 }
 
+function tpl_adm_ReqAvailPlugins()
+{
+  
+}

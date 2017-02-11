@@ -1,12 +1,9 @@
 <?php
 
-class Controller_Dashboard extends Controller
-{
+class Controller_Dashboard extends Controller {
 
-	function action_index()
-	{	
+    function action_index() {
+        $this->view->generate('dashboard_view.php', 'template_adm_page.php');
+    }
 
-                $this->view->generate('dashboard_view.php', 'template_db_view.php');
-           
-	}
 }

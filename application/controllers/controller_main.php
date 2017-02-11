@@ -22,7 +22,8 @@ class Controller_Main extends Controller
             }
             else if (!isset($page))
             {
-                $this->view->generate('dashboard_view.php', 'template_mp_view.php');
+                $this->view->generate('main_view.php', 'template_mp_view.php');
+            //    $this->view->generate('dashboard_view.php', 'template_mp_view.php');
             }
 	}
 }
