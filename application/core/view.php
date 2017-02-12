@@ -10,13 +10,13 @@ class View
 	$template_file - общий для всех страниц шаблон;
 	$data - массив, содержащий элементы контента страницы. Обычно заполняется в модели.
 	*/
-	function generate($content_view, $template_view, $data = null)
+	function generate($content_view, $template_view,$plugin_scripts="", $data = null)
 	{
 		include 'application/views/'.$template_view;
 	}
         function getTemplateJSVariables()
         {
-            
+            return;
             if (session_status()!= PHP_SESSION_NONE && $_SESSION[SSN_AUTH_STATE]==true)
             {
                 $Ret="mpv_AuthState=true;mpv_UserName='".$_SESSION[SSN_AUTH_LOGIN]."'";

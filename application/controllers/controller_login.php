@@ -3,7 +3,7 @@
 class Controller_Login extends Controller
 {
     function __construct() {
-        $this->view = new View();
+        parent::__construct();
         $this->model = new model_login();
     }
 

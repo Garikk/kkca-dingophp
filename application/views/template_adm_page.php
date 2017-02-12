@@ -35,10 +35,10 @@
 
 </head>
 
-<body>
+<body onload="tpl_adm_OnLoad()">
 <?php include_once("analyticstracking.php") ?>
     <!--<div id="wrapper">-->
-             <?php include 'application/views/' . $content_view; ?>
+   <?php include 'application/views/' . $content_view; ?>
    <!-- </div>-->
 
     <!-- /#wrapper -->
@@ -55,10 +55,13 @@
     <!-- Morris Charts JavaScript -->
     <script src="/vendor/raphael/raphael.min.js"></script>
     <script src="/vendor/morrisjs/morris.min.js"></script>
-    <script src="/data/morris-data.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="/sbadm/js/sb-admin-2.js"></script>
+    
+    <!-- Dingo JavaScript -->
+    <script src="/vendor/kk/js/kk.template.js"></script>
+    <?php echo $plugin_scripts ?>
 
 </body>
 

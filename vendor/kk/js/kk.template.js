@@ -33,7 +33,25 @@ function onMainTemplateLoad()
     }
 }
 
+
+function tpl_adm_OnLoad()
+{
+    tpl_adm_ReqAvailPlugins();
+}
+
 function tpl_adm_ReqAvailPlugins()
 {
-  
+    $.getJSON('/services/dw_svcs_plugins_getplugins', function (Data) {
+        tpl_adm_FillPluginMenuItems(Data);
+    });
+}
+
+function tpl_adm_FillPluginMenuItems(Data)
+{
+    //Clear old menu
+    $("#side-menu").empty();
+    Data.forEach(function (item, i, arr) {
+        //Fill Plugin items
+        $("#side-menu").append("<li><a href=../"+item['link']+">"+item['name_lc']+"</a></li>");
+    });
 }

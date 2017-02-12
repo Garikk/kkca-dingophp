@@ -16,6 +16,7 @@ class dbconnection {
     
     function __construct() {
          $this->dbconn = mysqli_connect("127.0.0.1","kkcar","kkcar","kkcar");
+         $this->dbconn->set_charset("utf8");
     }
     
     public function ExecQuery($query)//,$params)
