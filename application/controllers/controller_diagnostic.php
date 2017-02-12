@@ -9,7 +9,8 @@ class Controller_diagnostic extends Controller {
 
 
     function action_index() {
-        $this->view->generate('diagnostic_view.php', 'template_view.php', null);
+        //$myscripts="<script src='/vendor/kk/js/kk.dashboard.js'></script><script>dbr_OnLoad()</script>";
+        $this->view->generate('diagnostic_view.php', 'template_adm_page.php');
     }
 
     function action_getliveinfo() {
