@@ -46,22 +46,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse" >
             <form id="mpv_loginform" class="navbar-form navbar-right" method="post"  action="/login">
-                <div class="form-group">
-                    <input id="mpt_loginfield"  name="mpt_loginfield" type="text" placeholder="Login" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input id="mpt_passfield" name="mpt_passfield" type="password" placeholder="Password" class="form-control">
-                </div>
-                <input type="hidden" name="<?php echo PARAM_WEB_POST_ACTION ?>" value="<?php echo ACT_WEB_LOGIN_LOGIN ?>">
-                <input type="hidden" name="<?php echo PARAM_WEB_POST_LOGIN_SKIPLOGIN ?>" value="true">
                 <button type="submit" class="btn btn-success">Войти</button>
             </form>
-             <form id="mpv_logoffform" class="navbar-form navbar-right" method="post"  action="/login">
-                 <label id="mpv_userlogin"></label>
-                 <input type="hidden" name="<?php echo PARAM_WEB_POST_ACTION ?>" value="<?php echo ACT_WEB_LOGIN_LOGOFF ?>">
-                 <input type="hidden" name="<?php echo PARAM_WEB_POST_LOGIN_SKIPLOGIN ?>" value="true">
-                 <a href="#" onclick="$(this).closest('form').submit()"><b>[Выход]</b></a>
-             </form>
+           
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

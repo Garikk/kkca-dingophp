@@ -9,6 +9,7 @@ class Controller_Login extends Controller
 
     function action_index() {
          $this->view->generate('login_view.php', 'template_adm_page.php');
+         
          die();
          //
         if (!isset($_POST[PARAM_WEB_POST_ACTION])) {

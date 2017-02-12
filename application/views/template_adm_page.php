@@ -35,7 +35,7 @@
 
     </head>
 
-    <body onload="tpl_adm_OnLoad()">
+    <body>
         <?php include_once("analyticstracking.php") ?>
         <!--<div id="wrapper">-->
         <div id="wrapper">
