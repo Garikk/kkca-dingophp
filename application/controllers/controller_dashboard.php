@@ -8,7 +8,7 @@ class Controller_Dashboard extends Controller {
     }
 
     function action_index() {
-        $myscripts="<script src='/vendor/kk/js/kk.dashboard.js'></script><script>tpl_adm_OnLoad();dbr_OnLoad()</script>";
+        $myscripts="<script src='/kk/js/kk.dashboard.js'></script><script>tpl_adm_OnLoad();dbr_OnLoad()</script>";
         $this->view->generate('dashboard_view.php', 'template_adm_page.php',$myscripts);
     }
 

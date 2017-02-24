@@ -51,13 +51,23 @@
                     <a class="navbar-brand" href="index.html">Dingo Car</a>
                 </div>
                 <!-- /.navbar-header -->
-
                 <ul class="nav navbar-top-links navbar-right">
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <div id="db_current_conf_ddm">Устройство:</div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user" id="db_current_conf_ddm_items">
+                            <li><a href="#"><i class="fa fa-car fa-fw"></i> Nothing</a></li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                    
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
-                        <ul class="dropdown-menu dropdown-messages">
+                        <ul class="dropdown-menu">
                             <li>
                                 <a href="#">
                                     <div>
@@ -296,7 +306,7 @@
         <script src="/sbadm/js/sb-admin-2.js"></script>
 
         <!-- Dingo JavaScript -->
-        <script src="/vendor/kk/js/kk.template.js"></script>
+        <script src="/kk/js/kk.template.js"></script>
         <?php echo $plugin_scripts ?>
 
     </body>

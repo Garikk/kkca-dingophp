@@ -32,7 +32,7 @@
 
     </div>
     <!-- /.row -->
-    <div class="row">
+    <div class="row" id="charts-area">
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">

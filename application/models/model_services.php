@@ -28,8 +28,11 @@ class model_services extends Model {
     public function dw_get_avail_plugins() {
 
         $query = "SELECT"
+                . " id,"
                 . " name_lc,"
-                . " link"
+                . " link,"
+                . " parent,"
+                . " isgroup"
                 . " FROM"
                 . "     dw_plugins"
                 . " WHERE"
@@ -41,5 +44,32 @@ class model_services extends Model {
         //
         return $Ret;
     }
+    public function dw_get_avail_kkcar_devices($userid) {
 
+        $query = "SELECT"
+                . " id,"
+                . " name"
+                . " FROM"
+                . "     kkcar"
+                . " WHERE"
+                . "     active=1"
+                . " AND"
+                . "     owner=".$userid;
+
+        $result = $this->dbc->ExecQuery($query);
+        //
+        $Ret=$result;
+        //
+        return $Ret;
+    }
+    public function dw_get_active_kkcar_device($userid) {
+        
+        $query="SELECT id,name FROM kkcar JOIN dw_kk_active_device ON kkcar.id=dw_kk_active_device.kkcar WHERE kkcar.owner=".$userid;
+
+        $result = $this->dbc->ExecQuery($query);
+        //
+        $Ret=$result;
+        //
+        return $Ret;
+    }
 }
