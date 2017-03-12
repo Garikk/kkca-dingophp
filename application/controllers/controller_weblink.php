@@ -11,7 +11,7 @@
  *
  * @author blinov_is
  */
-class Controller_kkcontroller extends wservice {
+class Controller_weblink extends wservice {
 
     function __construct() {
         $this->model = new model_kkcontroller();
