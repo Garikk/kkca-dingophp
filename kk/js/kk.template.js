@@ -33,7 +33,6 @@ function onMainTemplateLoad()
     }
 }
 
-
 function tpl_adm_OnLoad()
 {
     tpl_adm_ReqAvailPlugins();
@@ -66,11 +65,8 @@ function tpl_adm_FillPluginMenuItems(Data)
             }
         } else
         {
-            
             $("#side-menu").append("<li><a href='#'><i class='fa fa-sitemap fa-fw'></i>"+item['name_lc']+"<span class='fa arrow'></span></a><ul id='side-menu-sub-"+item['id']+"' class='nav nav-second-level collapse in' aria-expanded='true' style=''></li>");
         }
-        
-        
     });
 }
 
