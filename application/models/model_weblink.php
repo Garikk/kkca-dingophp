@@ -11,7 +11,7 @@
  *
  * @author blinov_is
  */
-class model_kkcontroller extends Model {
+class model_weblink extends Model {
 
     function __construct() {
         $this->dbc = new dbconnection();

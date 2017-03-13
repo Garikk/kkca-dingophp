@@ -14,9 +14,23 @@
 class Controller_weblink extends wservice {
 
     function __construct() {
-        $this->model = new model_kkcontroller();
+        $this->model = new model_weblink();
     }
 
+    function Action_configuration_info()
+    {
+         if (!isset($_POST[PARAM_CTRLR_POST_REQUEST_ACT])) {
+            $this->AnswerError('bad request');
+            return;
+        }
+
+        $action = (int) filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_ACT);
+        $myid = filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_MYUUID);
+        
+        $this->GetConfigurationInfo($myid);
+    }
+            
+    
     function Action_request() {
         if (!isset($_POST[PARAM_CTRLR_POST_REQUEST_ACT])) {
             $this->AnswerError('bad request');
