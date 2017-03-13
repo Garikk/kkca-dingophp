@@ -24,12 +24,22 @@ class Controller_weblink extends wservice {
             return;
         }
 
-        $action = (int) filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_ACT);
         $myid = filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_MYUUID);
         
         $this->GetConfigurationInfo($myid);
     }
-            
+    
+    function Action_configuration_data()
+    {
+         if (!isset($_POST[PARAM_CTRLR_POST_REQUEST_ACT])) {
+            $this->AnswerError('bad request');
+            return;
+        }
+
+        $myid = filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_MYUUID);
+        $this->GetConfigurationData($myid);
+    }
+                   
     
     function Action_request() {
         if (!isset($_POST[PARAM_CTRLR_POST_REQUEST_ACT])) {
@@ -76,10 +86,12 @@ class Controller_weblink extends wservice {
     function GetConfigurationInfo($MyID) {
         $resData = $this->model->get_config($MyID);
 
+        $resData["Pack"]=$resData;
+        
         $res = array(
-            'AnswerState' => '0',
-            'Version' => 1,
-            'JsonData' => json_encode($resData)
+            'answerState' => '0',
+            'version' => 1,
+            'jsonData' => json_encode($resData)
         );
         header('Content-type: application/json');
         echo json_encode($res);
@@ -96,9 +108,9 @@ class Controller_weblink extends wservice {
             'configurations' => $resData
         );
         $res = array(
-            'AnswerState' => '0',
-            'Version' => 1,
-            'JsonData' => json_encode($resPre)
+            'answerState' => '0',
+            'version' => 1,
+            'jsonData' => json_encode($resPre)
         );
         header('Content-type: application/json');
         echo json_encode($res);
@@ -119,9 +131,9 @@ class Controller_weblink extends wservice {
         }
 
         $res = array(
-            'AnswerState' => '0',
-            'Version' => 1,
-            'JsonData' => json_encode($resData)
+            'answerState' => '0',
+            'version' => 1,
+            'jsonData' => json_encode($resData)
         );
         header('Content-type: application/json');
         echo json_encode($res);
@@ -129,9 +141,9 @@ class Controller_weblink extends wservice {
 
     function AnswerError($dat) {
         $res = array(
-            'AnswerState' => '1',
-            'Version' => 1,
-            'JsonData' => "Error: " . $dat
+            'answerState' => '1',
+            'version' => 1,
+            'jsonData' => "Error: " . $dat
         );
         header('Content-type: application/json');
         echo json_encode($res);
