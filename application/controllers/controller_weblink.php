@@ -39,48 +39,18 @@ class Controller_weblink extends wservice {
         $myid = filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_MYUUID);
         $this->GetConfigurationData($myid);
     }
-                   
     
-    function Action_request() {
-        if (!isset($_POST[PARAM_CTRLR_POST_REQUEST_ACT])) {
+    function Action_files_bin_info()
+    {
+         if (!isset($_POST[PARAM_CTRLR_POST_REQUEST_ACT])) {
             $this->AnswerError('bad request');
             return;
         }
 
-        $action = (int) filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_ACT);
         $myid = filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_MYUUID);
-
-        switch ($action) {
-            case ACT_CTRLR_GET_MYCONF_INFO:
-                $this->GetConfigurationInfo($myid);
-                break;
-            case ACT_CTRLR_GET_MYCONF_DATA:
-                $this->GetConfigurationData($myid);
-                break;
-            case ACT_CTRLR_GET_PLUGIN_INFO:
-                break;
-            case ACT_CTRLR_GET_PLUGIN_DATA:
-                break;
-            case ACT_CTRLR_GET_FILES_INFO_BIN:
-                $this->GetFilesInfo($myid,True);
-                break;
-            case ACT_CTRLR_GET_FILES_INFO_EXTCONF:
-                $this->GetFilesInfo($myid,False);
-                break;
-             case ACT_CTRLR_CMD_REBOOT_KKCTRL:
-                $this->CreateRebootKKCommand();
-                break;
-            default:
-                AnswerError();
-                break;
-        }
+        $this->GetFilesInfo($myid,true);
     }
-
-    function CreateRebootKKCommand()
-    {
-        
-        
-    }
+                                 
     
     
     function GetConfigurationInfo($MyID) {
@@ -125,7 +95,7 @@ class Controller_weblink extends wservice {
             $confUID = filter_input(INPUT_POST, PARAM_CTRLR_POST_REQUEST_CONFUUID);
         }
 
-        $resData = $this->model->get_files_info($MyID,$reqFiles, $confUID, $IsBinFile);
+        $resData['pack'] = $this->model->get_files_info($MyID,$reqFiles, $confUID, $IsBinFile);
         if ($resData == FALSE) {
             $this->AnswerError('request error, wrong uuid?');
         }

@@ -56,7 +56,9 @@ class model_weblink extends Model {
                         ."  ON "
                         ."      (kkcar.id=configurations.id) "
                         ."  WHERE "
-                        ."      kkcar.uuid='".$MyID."')");
+                        ."      kkcar.uuid='".$MyID."')"
+                        . " OR"
+                        . "     configurationtype=3"); //Get global conf
     }
 
     public function get_files_info($MyID, $RequiredFiles, $ConfigUID, $IsBinFiles) {
@@ -71,13 +73,8 @@ class model_weblink extends Model {
                     , array($ConfigUID));
         } else {
             return $this->dbc->ExecQuery(   
-                        "SELECT"
-                        ."  files.name,"
-                        ."  files.url"
-                        ." FROM "
-                        ."  files"
-                        ." WHERE"
-                        ."  files.owner_plugin IN (".implode(",",array($RequiredFiles)).")");
+                    "SELECT 
+                        files.name, files.url FROM files JOIN plugins ON files.owner_plugin=plugins.id WHERE plugins.uuid IN  (".implode(",",array($RequiredFiles)).")");
         }
     }
 
