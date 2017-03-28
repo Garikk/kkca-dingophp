@@ -32,11 +32,11 @@ class model_extconnector extends Model {
                 . "     AND "
                 . "     kkcar_id = "
                 . "     (SELECT "
-                . "         kkcar.id "
+                . "         kkiot.id "
                 . "      FROM "
                 . "         kkcar "
                 . "      WHERE "
-                . "         kkcar.uuid='".$MyID."')"
+                . "         kkiot.uuid='".$MyID."')"
                 . "   AND "
                 . "   timestamp<=".$ReqTS.""
                 . "    AND"
@@ -74,11 +74,11 @@ class model_extconnector extends Model {
                 . "    ". $pinid .","
                 . "    true,"
                 . "    (SELECT "
-                . "         kkcar.activeconfiguration "
+                . "         kkiot.activeconfiguration "
                 . "      FROM "
                 . "         kkcar "
                 . "      WHERE "
-                . "         kkcar.uuid='".$MyID."')"
+                . "         kkiot.uuid='".$MyID."')"
                 . "    ) ");
 
         return $Ret;

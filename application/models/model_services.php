@@ -64,7 +64,7 @@ class model_services extends Model {
     }
     public function dw_get_active_kkcar_device($userid) {
         
-        $query="SELECT id,name FROM kkcar JOIN dw_kk_active_device ON kkcar.id=dw_kk_active_device.kkcar WHERE kkcar.owner=".$userid;
+        $query="SELECT id,name FROM kkcar JOIN dw_kk_active_device ON kkiot.id=dw_kk_active_device.kkcar WHERE kkiot.owner=".$userid;
 
         $result = $this->dbc->ExecQuery($query);
         //

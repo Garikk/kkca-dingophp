@@ -1,8 +1,8 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Dingo Car</h1>
-        <p>Привет! Это мой проект по созданию программной платформы для управления CarPC :) На текущем сайте находится веб-панель управления</p>
+        <h1>Dingo</h1>
+        <p>Привет! Это мой проект по созданию программной платформы для управления распределённых систем IoT :) На текущем сайте находится веб-панель управления</p>
         <p>Исходники находятся на Github, мануала и инструкций пока нет
         <p><a class="btn btn-primary btn-lg" href="https://github.com/Garikk" role="button">Github &raquo;</a></p>
       </div>
@@ -23,7 +23,7 @@
        </div>
         <div class="col-md-4">
           <h2>Открытость</h2>
-          <p>Все базовые программные модули системы, позволяющие собрать полноценный CarPC доступны как OpenSource под лицензией GPL</p>
+          <p>Все базовые программные модули системы, позволяющие собрать полноценное устройство IoT доступны как OpenSource под лицензией GPL</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>

@@ -37,12 +37,12 @@ class model_configuration extends Model {
                         . " AND "
                         . "  kkcar_confinfo.kkcar IN "
                         . "  (SELECT "
-                        . "      kkcar.id "
+                        . "      kkiot.id "
                         . "   FROM "
                         . "      kkcar "
                         . "   WHERE "
-                        //. "      kkcar.uuid ='".$MyID."')";
-                        . "      kkcar.uuid IN (".  implode(",", array("'".$MyID."'"))."))";
+                        //. "      kkiot.uuid ='".$MyID."')";
+                        . "      kkiot.uuid IN (".  implode(",", array("'".$MyID."'"))."))";
         
     
         
@@ -63,11 +63,11 @@ class model_configuration extends Model {
                         . " AND"
                         . "     kkcar_commands.kkcar = "
                         . "     (SELECT "
-                        . "         kkcar.id "
+                        . "         kkiot.id "
                         . "      FROM "
                         . "         kkcar "
                         . "      WHERE "
-                        . "         kkcar.uuid='".$MyID."')");
+                        . "         kkiot.uuid='".$MyID."')");
     }
     
      public function get_pluginsconfiguration($MyID) {
@@ -81,9 +81,9 @@ class model_configuration extends Model {
                         . " FROM "
                         . "  configurations,kkcar "
                         . " WHERE "
-                        . "  configurations.ownerconf=kkcar.activeconfiguration "
+                        . "  configurations.ownerconf=kkiot.activeconfiguration "
                         . " AND "
-                        . "  kkcar.uuid='".$MyID."' ");
+                        . "  kkiot.uuid='".$MyID."' ");
     
 
     }

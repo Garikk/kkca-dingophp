@@ -45,13 +45,13 @@ class model_dashboard extends Model {
                 . "dw_kk_historystore.timestamp, "
                 . "dw_kk_historystore.value, "
                 . "odb_pids.descriptionodb, "
-                . "kkcar.name "
+                . "kkiot.name "
                 . "FROM `dw_kk_historystore` "
                 . "join odb_pids "
                 . "on odb_pids.PID=dw_kk_historystore.measure "
                 . "join kkcar "
-                . "on kkcar.id=dw_kk_historystore.kkcar "
-                . " where kkcar.id=1";
+                . "on kkiot.id=dw_kk_historystore.kkcar "
+                . " where kkiot.id=1";
 
         $result = $this->dbc->ExecQuery($query);
         //

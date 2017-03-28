@@ -25,16 +25,16 @@ class model_weblink extends Model {
         
         return $this->dbc->ExecQuery(
                         "SELECT"
-                            . " kkcar.uuid AS kkcaruuid,"
+                            . " kkiot.uuid AS kkcaruuid,"
                             . " configurations.uuid AS confuuid,"
                             . " configurations.stamp AS confstamp, "
                             . " system_state.kkcontroller_version as kkcontroller_version,"
                             . " system_state.base_version as base_version "
                         . " FROM kkcar "
                             . " INNER JOIN configurations"
-                            . " ON (configurations.id=kkcar.activeconfiguration)"
+                            . " ON (configurations.id=kkiot.activeconfiguration)"
                             . " INNER JOIN system_state ON (system_state.state=1)"
-                            . " WHERE kkcar.uuid='".$MyID."'");
+                            . " WHERE kkiot.uuid='".$MyID."'");
     }
 
     public function get_config_data($MyID) {
@@ -54,15 +54,16 @@ class model_weblink extends Model {
                         ."  INNER JOIN"
                         ."      kkcar"
                         ."  ON "
-                        ."      (kkcar.id=configurations.id) "
+                        ."      (kkiot.id=configurations.id) "
                         ."  WHERE "
-                        ."      kkcar.uuid='".$MyID."')"
+                        ."      kkiot.uuid='".$MyID."')"
                         . " OR"
                         . "     configurationtype=3"); //Get global conf
     }
 
     public function get_files_info($MyID, $RequiredFiles, $ConfigUID, $IsBinFiles) {
         if ($IsBinFiles==false) {
+
             return $this->dbc->ExecQuery(
                     "SELECT"
                     ."  files.name,"
@@ -71,6 +72,7 @@ class model_weblink extends Model {
                     ."  files"
                     ." WHERE files.owner_conf IN (SELECT configurations.id FROM configurations WHERE configurations.ownerconf=(SELECT configurations.id FROM configurations WHERE configurations.uuid=$1))"
                     , array($ConfigUID));
+  
         } else {
             return $this->dbc->ExecQuery(   
                     "SELECT 

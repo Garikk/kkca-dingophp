@@ -32,11 +32,11 @@ class model_diagnostic extends Model {
                         . " AND"
                         . "     liveinfo.kkcar_id = "
                         . "     (SELECT "
-                        . "         kkcar.id "
+                        . "         kkiot.id "
                         . "      FROM "
                         . "         kkcar "
                         . "      WHERE "
-                        . "         kkcar.uuid='".$MyID."')");
+                        . "         kkiot.uuid='".$MyID."')");
     }
 
     public function get_dtccodes($MyID) {
@@ -56,11 +56,11 @@ class model_diagnostic extends Model {
                         . " AND"
                         . "     liveinfo_dtc.kkcar_id = "
                         . "     (SELECT "
-                        . "         kkcar.id "
+                        . "         kkiot.id "
                         . "     FROM "
                         . "         kkcar "
                         . "     WHERE "
-                        . "         kkcar.uuid='".$MyID."')");
+                        . "         kkiot.uuid='".$MyID."')");
     }
     
     public function registercmd_cleardtc($MyID) {
@@ -78,11 +78,11 @@ class model_diagnostic extends Model {
                         . " AND"
                         . "     liveinfo_dtc.kkcar_id = "
                         . "     (SELECT "
-                        . "         kkcar.id "
+                        . "         kkiot.id "
                         . "     FROM "
                         . "         kkcar "
                         . "     WHERE "
-                        . "         kkcar.uuid='".$MyID."')");
+                        . "         kkiot.uuid='".$MyID."')");
     }
 
 }
