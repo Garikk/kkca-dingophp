@@ -44,13 +44,13 @@ class model_services extends Model {
         //
         return $Ret;
     }
-    public function dw_get_avail_kkcar_devices($userid) {
+    public function dw_get_avail_kkiot_devices($userid) {
 
         $query = "SELECT"
                 . " id,"
                 . " name"
                 . " FROM"
-                . "     kkcar"
+                . "     kkiot"
                 . " WHERE"
                 . "     active=1"
                 . " AND"
@@ -62,9 +62,9 @@ class model_services extends Model {
         //
         return $Ret;
     }
-    public function dw_get_active_kkcar_device($userid) {
+    public function dw_get_active_kkiot_device($userid) {
         
-        $query="SELECT id,name FROM kkcar JOIN dw_kk_active_device ON kkiot.id=dw_kk_active_device.kkcar WHERE kkiot.owner=".$userid;
+        $query="SELECT id,name FROM kkiot JOIN dw_kk_active_device ON kkiot.id=dw_kk_active_device.kkiot WHERE kkiot.owner=".$userid;
 
         $result = $this->dbc->ExecQuery($query);
         //

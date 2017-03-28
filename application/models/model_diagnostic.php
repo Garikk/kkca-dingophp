@@ -30,11 +30,11 @@ class model_diagnostic extends Model {
                         . " WHERE "
                         . "     (odb_pids.id=liveinfo.param_id)"
                         . " AND"
-                        . "     liveinfo.kkcar_id = "
+                        . "     liveinfo.kkiot_id = "
                         . "     (SELECT "
                         . "         kkiot.id "
                         . "      FROM "
-                        . "         kkcar "
+                        . "         kkiot "
                         . "      WHERE "
                         . "         kkiot.uuid='".$MyID."')");
     }
@@ -54,11 +54,11 @@ class model_diagnostic extends Model {
                         . " AND"
                         . "     liveinfo_dtc.active=true"
                         . " AND"
-                        . "     liveinfo_dtc.kkcar_id = "
+                        . "     liveinfo_dtc.kkiot_id = "
                         . "     (SELECT "
                         . "         kkiot.id "
                         . "     FROM "
-                        . "         kkcar "
+                        . "         kkiot "
                         . "     WHERE "
                         . "         kkiot.uuid='".$MyID."')");
     }
@@ -76,11 +76,11 @@ class model_diagnostic extends Model {
                         . " WHERE "
                         . "     (odb_dtc.id=liveinfo_dtc.dtc_val)"
                         . " AND"
-                        . "     liveinfo_dtc.kkcar_id = "
+                        . "     liveinfo_dtc.kkiot_id = "
                         . "     (SELECT "
                         . "         kkiot.id "
                         . "     FROM "
-                        . "         kkcar "
+                        . "         kkiot "
                         . "     WHERE "
                         . "         kkiot.uuid='".$MyID."')");
     }

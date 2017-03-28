@@ -36,8 +36,8 @@ function onMainTemplateLoad()
 function tpl_adm_OnLoad()
 {
     tpl_adm_ReqAvailPlugins();
-    tpl_adm_ReqAvailKKCarConf();
-    tpl_adm_ReqActiveKKCar();
+    tpl_adm_ReqAvailkkiotConf();
+    tpl_adm_ReqActivekkiot();
 }
 
 function tpl_adm_ReqAvailPlugins()
@@ -70,14 +70,14 @@ function tpl_adm_FillPluginMenuItems(Data)
     });
 }
 
-function tpl_adm_ReqAvailKKCarConf()
+function tpl_adm_ReqAvailkkiotConf()
 {
-    $.getJSON('/services/dw_svcs_kkcar_getavail_devices', function (Data) {
-        tpl_adm_FillAvailKKCars(Data);
+    $.getJSON('/services/dw_svcs_kkiot_getavail_devices', function (Data) {
+        tpl_adm_FillAvailkkiots(Data);
     });
 }
 
-function tpl_adm_FillAvailKKCars(Data)
+function tpl_adm_FillAvailkkiots(Data)
 {
     //Clear old menu
     $("#db_current_conf_ddm_items").empty();
@@ -86,13 +86,13 @@ function tpl_adm_FillAvailKKCars(Data)
         $("#db_current_conf_ddm_items").append("<li><a href='tpl_adm_ChangeActiveDevice("+item['id']+")'><i class='fa fa-car fa-fw'></i>"+item['name']+"</a></li>");
     });
 }
-function tpl_adm_ReqActiveKKCar()
+function tpl_adm_ReqActivekkiot()
 {
-    $.getJSON('/services/dw_svcs_kkcar_getactive_device', function (Data) {
-        tpl_adm_FillActiveKKCar(Data);
+    $.getJSON('/services/dw_svcs_kkiot_getactive_device', function (Data) {
+        tpl_adm_FillActivekkiot(Data);
     });
 }
-function tpl_adm_FillActiveKKCar(Data)
+function tpl_adm_FillActivekkiot(Data)
 {
     //Clear old menu
     Data.forEach(function (item, i, arr) {

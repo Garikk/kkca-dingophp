@@ -74,7 +74,7 @@ class Controller_weblink extends wservice {
             $this->AnswerError('request error, wrong uuid?');
 
         $resPre = array(
-            'kkcaruid' => $MyID,
+            'kkiotuid' => $MyID,
             'configurations' => $resData
         );
         $res = array(

@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `kkcar`
+-- База данных: `kkiot`
 --
 
 -- --------------------------------------------------------
@@ -72,7 +72,7 @@ CREATE TABLE `configurations` (
   `stamp` longtext,
   `configurationtype` int(11) DEFAULT NULL,
   `ownerconf` int(11) DEFAULT NULL,
-  `kkcar` int(11) DEFAULT NULL
+  `kkiot` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -110,7 +110,7 @@ CREATE TABLE `dw_kk_dashboard_infopanels` (
 
 CREATE TABLE `dw_kk_historystore` (
   `id` int(11) NOT NULL,
-  `kkcar` int(11) NOT NULL,
+  `kkiot` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
   `measure` int(11) NOT NULL,
   `value` int(11) NOT NULL
@@ -143,7 +143,7 @@ CREATE TABLE `extconnector` (
   `pinid` longtext,
   `pinmessage` longtext,
   `id` int(11) NOT NULL,
-  `kkcar_id` int(11) DEFAULT NULL
+  `kkiot_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -176,10 +176,10 @@ CREATE TABLE `file_types` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `kkcar`
+-- Структура таблицы `kkiot`
 --
 
-CREATE TABLE `kkcar` (
+CREATE TABLE `kkiot` (
   `id` int(11) NOT NULL,
   `name` longtext,
   `owner` int(11) DEFAULT NULL,
@@ -191,12 +191,12 @@ CREATE TABLE `kkcar` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `kkcar_commands`
+-- Структура таблицы `kkiot_commands`
 --
 
-CREATE TABLE `kkcar_commands` (
+CREATE TABLE `kkiot_commands` (
   `id` int(11) NOT NULL,
-  `kkcar` int(11) DEFAULT NULL,
+  `kkiot` int(11) DEFAULT NULL,
   `description` longtext,
   `command` longtext,
   `status` int(11) DEFAULT NULL,
@@ -206,12 +206,12 @@ CREATE TABLE `kkcar_commands` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `kkcar_confinfo`
+-- Структура таблицы `kkiot_confinfo`
 --
 
-CREATE TABLE `kkcar_confinfo` (
+CREATE TABLE `kkiot_confinfo` (
   `id` int(11) NOT NULL,
-  `kkcar` int(11) DEFAULT NULL,
+  `kkiot` int(11) DEFAULT NULL,
   `carinfo` longtext,
   `currentconfig` int(11) DEFAULT NULL,
   `configversion` longtext,
@@ -226,12 +226,12 @@ CREATE TABLE `kkcar_confinfo` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `kkcar_messages`
+-- Структура таблицы `kkiot_messages`
 --
 
-CREATE TABLE `kkcar_messages` (
+CREATE TABLE `kkiot_messages` (
   `id` int(11) NOT NULL,
-  `kkcar` int(11) DEFAULT NULL,
+  `kkiot` int(11) DEFAULT NULL,
   `message` longtext,
   `timestamp` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -244,7 +244,7 @@ CREATE TABLE `kkcar_messages` (
 
 CREATE TABLE `liveinfo` (
   `id` int(11) NOT NULL,
-  `kkcar_id` int(11) DEFAULT NULL,
+  `kkiot_id` int(11) DEFAULT NULL,
   `name` longtext,
   `param_id` int(11) DEFAULT NULL,
   `value` double DEFAULT NULL,
@@ -259,7 +259,7 @@ CREATE TABLE `liveinfo` (
 
 CREATE TABLE `liveinfo_dtc` (
   `id` int(11) NOT NULL,
-  `kkcar_id` int(11) NOT NULL,
+  `kkiot_id` int(11) NOT NULL,
   `active` tinyint(1) NOT NULL,
   `dtc_val` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL
@@ -381,7 +381,7 @@ ALTER TABLE `arch`
 --
 ALTER TABLE `configurations`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FKI_kkcar` (`kkcar`),
+  ADD KEY `FKI_kkiot` (`kkiot`),
   ADD KEY `configurations_configurationtype_fkey` (`configurationtype`);
 
 --
@@ -413,7 +413,7 @@ ALTER TABLE `dw_plugins`
 --
 ALTER TABLE `extconnector`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FKI_KKCarId` (`kkcar_id`);
+  ADD KEY `FKI_kkiotId` (`kkiot_id`);
 
 --
 -- Индексы таблицы `files`
@@ -430,33 +430,33 @@ ALTER TABLE `file_types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `kkcar`
+-- Индексы таблицы `kkiot`
 --
-ALTER TABLE `kkcar`
+ALTER TABLE `kkiot`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `kkcar_ActiveConfiguration_fkey` (`activeconfiguration`);
+  ADD KEY `kkiot_ActiveConfiguration_fkey` (`activeconfiguration`);
 
 --
--- Индексы таблицы `kkcar_commands`
+-- Индексы таблицы `kkiot_commands`
 --
-ALTER TABLE `kkcar_commands`
+ALTER TABLE `kkiot_commands`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fki_kkcar_cmd` (`kkcar`);
+  ADD KEY `fki_kkiot_cmd` (`kkiot`);
 
 --
--- Индексы таблицы `kkcar_confinfo`
+-- Индексы таблицы `kkiot_confinfo`
 --
-ALTER TABLE `kkcar_confinfo`
+ALTER TABLE `kkiot_confinfo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fki_currconf` (`currentconfig`),
-  ADD KEY `fki_kkcar_confinfo` (`kkcar`);
+  ADD KEY `fki_kkiot_confinfo` (`kkiot`);
 
 --
--- Индексы таблицы `kkcar_messages`
+-- Индексы таблицы `kkiot_messages`
 --
-ALTER TABLE `kkcar_messages`
+ALTER TABLE `kkiot_messages`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `kkcar_messages_kkcar_fkey` (`kkcar`);
+  ADD KEY `kkiot_messages_kkiot_fkey` (`kkiot`);
 
 --
 -- Индексы таблицы `liveinfo`
@@ -564,24 +564,24 @@ ALTER TABLE `files`
 ALTER TABLE `file_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `kkcar`
+-- AUTO_INCREMENT для таблицы `kkiot`
 --
-ALTER TABLE `kkcar`
+ALTER TABLE `kkiot`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `kkcar_commands`
+-- AUTO_INCREMENT для таблицы `kkiot_commands`
 --
-ALTER TABLE `kkcar_commands`
+ALTER TABLE `kkiot_commands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `kkcar_confinfo`
+-- AUTO_INCREMENT для таблицы `kkiot_confinfo`
 --
-ALTER TABLE `kkcar_confinfo`
+ALTER TABLE `kkiot_confinfo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `kkcar_messages`
+-- AUTO_INCREMENT для таблицы `kkiot_messages`
 --
-ALTER TABLE `kkcar_messages`
+ALTER TABLE `kkiot_messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `liveinfo`
@@ -631,14 +631,14 @@ ALTER TABLE `system_state`
 -- Ограничения внешнего ключа таблицы `configurations`
 --
 ALTER TABLE `configurations`
-  ADD CONSTRAINT `FK_kkcar` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_kkiot` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `configurations_configurationtype_fkey` FOREIGN KEY (`configurationtype`) REFERENCES `config_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `extconnector`
 --
 ALTER TABLE `extconnector`
-  ADD CONSTRAINT `FK_KKCarId` FOREIGN KEY (`kkcar_id`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `FK_kkiotId` FOREIGN KEY (`kkiot_id`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `files`
@@ -648,29 +648,29 @@ ALTER TABLE `files`
   ADD CONSTRAINT `fk_plugin` FOREIGN KEY (`owner_plugin`) REFERENCES `plugins` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `kkcar`
+-- Ограничения внешнего ключа таблицы `kkiot`
 --
-ALTER TABLE `kkcar`
-  ADD CONSTRAINT `kkcar_ActiveConfiguration_fkey` FOREIGN KEY (`activeconfiguration`) REFERENCES `configurations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `kkiot`
+  ADD CONSTRAINT `kkiot_ActiveConfiguration_fkey` FOREIGN KEY (`activeconfiguration`) REFERENCES `configurations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `kkcar_commands`
+-- Ограничения внешнего ключа таблицы `kkiot_commands`
 --
-ALTER TABLE `kkcar_commands`
-  ADD CONSTRAINT `fk_kkcar_cmd` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `kkiot_commands`
+  ADD CONSTRAINT `fk_kkiot_cmd` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `kkcar_confinfo`
+-- Ограничения внешнего ключа таблицы `kkiot_confinfo`
 --
-ALTER TABLE `kkcar_confinfo`
-  ADD CONSTRAINT `fk_currconf` FOREIGN KEY (`currentconfig`) REFERENCES `kkcar_confinfo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_kkcar_confinfo` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `kkiot_confinfo`
+  ADD CONSTRAINT `fk_currconf` FOREIGN KEY (`currentconfig`) REFERENCES `kkiot_confinfo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_kkiot_confinfo` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `kkcar_messages`
+-- Ограничения внешнего ключа таблицы `kkiot_messages`
 --
-ALTER TABLE `kkcar_messages`
-  ADD CONSTRAINT `kkcar_messages_kkcar_fkey` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `kkiot_messages`
+  ADD CONSTRAINT `kkiot_messages_kkiot_fkey` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `liveinfo`

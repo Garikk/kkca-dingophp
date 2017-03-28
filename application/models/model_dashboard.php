@@ -49,8 +49,8 @@ class model_dashboard extends Model {
                 . "FROM `dw_kk_historystore` "
                 . "join odb_pids "
                 . "on odb_pids.PID=dw_kk_historystore.measure "
-                . "join kkcar "
-                . "on kkiot.id=dw_kk_historystore.kkcar "
+                . "join kkiot "
+                . "on kkiot.id=dw_kk_historystore.kkiot "
                 . " where kkiot.id=1";
 
         $result = $this->dbc->ExecQuery($query);

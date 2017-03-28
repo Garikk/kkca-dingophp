@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.9, for Win32 (AMD64)
 --
--- Host: localhost    Database: kkcar
+-- Host: localhost    Database: kkiot
 -- ------------------------------------------------------
 -- Server version	5.7.9-log
 
@@ -106,11 +106,11 @@ CREATE TABLE `configurations` (
   `stamp` longtext,
   `configurationtype` int(11) DEFAULT NULL,
   `ownerconf` int(11) DEFAULT NULL,
-  `kkcar` int(11) DEFAULT NULL,
+  `kkiot` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKI_kkcar` (`kkcar`),
+  KEY `FKI_kkiot` (`kkiot`),
   KEY `configurations_configurationtype_fkey` (`configurationtype`),
-  CONSTRAINT `FK_kkcar` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_kkiot` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `configurations_configurationtype_fkey` FOREIGN KEY (`configurationtype`) REFERENCES `config_types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -139,10 +139,10 @@ CREATE TABLE `extconnector` (
   `pinid` longtext,
   `pinmessage` longtext,
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kkcar_id` int(11) DEFAULT NULL,
+  `kkiot_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKI_KKCarId` (`kkcar_id`),
-  CONSTRAINT `FK_KKCarId` FOREIGN KEY (`kkcar_id`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FKI_kkiotId` (`kkiot_id`),
+  CONSTRAINT `FK_kkiotId` FOREIGN KEY (`kkiot_id`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -214,13 +214,13 @@ INSERT INTO `files` VALUES (5,'http://localhost/rep/extconf/datadisplay/kk_displ
 UNLOCK TABLES;
 
 --
--- Table structure for table `kkcar`
+-- Table structure for table `kkiot`
 --
 
-DROP TABLE IF EXISTS `kkcar`;
+DROP TABLE IF EXISTS `kkiot`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `kkcar` (
+CREATE TABLE `kkiot` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` longtext,
   `owner` int(11) DEFAULT NULL,
@@ -228,61 +228,61 @@ CREATE TABLE `kkcar` (
   `uuid` longtext,
   `activeconfiguration` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `kkcar_ActiveConfiguration_fkey` (`activeconfiguration`),
-  CONSTRAINT `kkcar_ActiveConfiguration_fkey` FOREIGN KEY (`activeconfiguration`) REFERENCES `configurations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `kkiot_ActiveConfiguration_fkey` (`activeconfiguration`),
+  CONSTRAINT `kkiot_ActiveConfiguration_fkey` FOREIGN KEY (`activeconfiguration`) REFERENCES `configurations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `kkcar`
+-- Dumping data for table `kkiot`
 --
 
-LOCK TABLES `kkcar` WRITE;
-/*!40000 ALTER TABLE `kkcar` DISABLE KEYS */;
-INSERT INTO `kkcar` VALUES (1,'Garikk\'s Chrysler',1,1,'2e2efd7b-ab83-42fa-9c00-2e45bb4b3ba1',1);
-/*!40000 ALTER TABLE `kkcar` ENABLE KEYS */;
+LOCK TABLES `kkiot` WRITE;
+/*!40000 ALTER TABLE `kkiot` DISABLE KEYS */;
+INSERT INTO `kkiot` VALUES (1,'Garikk\'s Chrysler',1,1,'2e2efd7b-ab83-42fa-9c00-2e45bb4b3ba1',1);
+/*!40000 ALTER TABLE `kkiot` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `kkcar_commands`
+-- Table structure for table `kkiot_commands`
 --
 
-DROP TABLE IF EXISTS `kkcar_commands`;
+DROP TABLE IF EXISTS `kkiot_commands`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `kkcar_commands` (
+CREATE TABLE `kkiot_commands` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kkcar` int(11) DEFAULT NULL,
+  `kkiot` int(11) DEFAULT NULL,
   `description` longtext,
   `command` longtext,
   `status` int(11) DEFAULT NULL,
   `timestamp` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fki_kkcar_cmd` (`kkcar`),
-  CONSTRAINT `fk_kkcar_cmd` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fki_kkiot_cmd` (`kkiot`),
+  CONSTRAINT `fk_kkiot_cmd` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `kkcar_commands`
+-- Dumping data for table `kkiot_commands`
 --
 
-LOCK TABLES `kkcar_commands` WRITE;
-/*!40000 ALTER TABLE `kkcar_commands` DISABLE KEYS */;
-INSERT INTO `kkcar_commands` VALUES (1,1,'test ommand23213','{}',1,12321313),(2,1,'update DTC','{}',1,1234324);
-/*!40000 ALTER TABLE `kkcar_commands` ENABLE KEYS */;
+LOCK TABLES `kkiot_commands` WRITE;
+/*!40000 ALTER TABLE `kkiot_commands` DISABLE KEYS */;
+INSERT INTO `kkiot_commands` VALUES (1,1,'test ommand23213','{}',1,12321313),(2,1,'update DTC','{}',1,1234324);
+/*!40000 ALTER TABLE `kkiot_commands` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `kkcar_confinfo`
+-- Table structure for table `kkiot_confinfo`
 --
 
-DROP TABLE IF EXISTS `kkcar_confinfo`;
+DROP TABLE IF EXISTS `kkiot_confinfo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `kkcar_confinfo` (
+CREATE TABLE `kkiot_confinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kkcar` int(11) DEFAULT NULL,
+  `kkiot` int(11) DEFAULT NULL,
   `carinfo` longtext,
   `currentconfig` int(11) DEFAULT NULL,
   `configversion` longtext,
@@ -294,47 +294,47 @@ CREATE TABLE `kkcar_confinfo` (
   `enginestatus` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fki_currconf` (`currentconfig`),
-  KEY `fki_kkcar_confinfo` (`kkcar`),
-  CONSTRAINT `fk_currconf` FOREIGN KEY (`currentconfig`) REFERENCES `kkcar_confinfo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_kkcar_confinfo` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fki_kkiot_confinfo` (`kkiot`),
+  CONSTRAINT `fk_currconf` FOREIGN KEY (`currentconfig`) REFERENCES `kkiot_confinfo` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_kkiot_confinfo` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `kkcar_confinfo`
+-- Dumping data for table `kkiot_confinfo`
 --
 
-LOCK TABLES `kkcar_confinfo` WRITE;
-/*!40000 ALTER TABLE `kkcar_confinfo` DISABLE KEYS */;
-INSERT INTO `kkcar_confinfo` VALUES (1,1,'Chrysler Concorde 3.2',1,'test','---not active--','Raspberry','Ok','Sleep',1111111,0);
-/*!40000 ALTER TABLE `kkcar_confinfo` ENABLE KEYS */;
+LOCK TABLES `kkiot_confinfo` WRITE;
+/*!40000 ALTER TABLE `kkiot_confinfo` DISABLE KEYS */;
+INSERT INTO `kkiot_confinfo` VALUES (1,1,'Chrysler Concorde 3.2',1,'test','---not active--','Raspberry','Ok','Sleep',1111111,0);
+/*!40000 ALTER TABLE `kkiot_confinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `kkcar_messages`
+-- Table structure for table `kkiot_messages`
 --
 
-DROP TABLE IF EXISTS `kkcar_messages`;
+DROP TABLE IF EXISTS `kkiot_messages`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `kkcar_messages` (
+CREATE TABLE `kkiot_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kkcar` int(11) DEFAULT NULL,
+  `kkiot` int(11) DEFAULT NULL,
   `message` longtext,
   `timestamp` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `kkcar_messages_kkcar_fkey` (`kkcar`),
-  CONSTRAINT `kkcar_messages_kkcar_fkey` FOREIGN KEY (`kkcar`) REFERENCES `kkcar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `kkiot_messages_kkiot_fkey` (`kkiot`),
+  CONSTRAINT `kkiot_messages_kkiot_fkey` FOREIGN KEY (`kkiot`) REFERENCES `kkiot` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `kkcar_messages`
+-- Dumping data for table `kkiot_messages`
 --
 
-LOCK TABLES `kkcar_messages` WRITE;
-/*!40000 ALTER TABLE `kkcar_messages` DISABLE KEYS */;
-/*!40000 ALTER TABLE `kkcar_messages` ENABLE KEYS */;
+LOCK TABLES `kkiot_messages` WRITE;
+/*!40000 ALTER TABLE `kkiot_messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `kkiot_messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -346,7 +346,7 @@ DROP TABLE IF EXISTS `liveinfo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `liveinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kkcar_id` int(11) DEFAULT NULL,
+  `kkiot_id` int(11) DEFAULT NULL,
   `name` longtext,
   `param_id` int(11) DEFAULT NULL,
   `value` double DEFAULT NULL,

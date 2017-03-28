@@ -15,12 +15,12 @@ class Controller_Services extends Controller {
         die();
     }
 
-    function action_dw_svcs_kkcar_getavail_devices() {
+    function action_dw_svcs_kkiot_getavail_devices() {
         $userid = 1; //TEMPORARY, CHANGE IT
-        echo json_encode($this->model->dw_get_avail_kkcar_devices($userid), JSON_UNESCAPED_UNICODE);
+        echo json_encode($this->model->dw_get_avail_kkiot_devices($userid), JSON_UNESCAPED_UNICODE);
     }
-    function action_dw_svcs_kkcar_getactive_device() {
+    function action_dw_svcs_kkiot_getactive_device() {
         $userid = 1; //TEMPORARY, CHANGE IT
-        echo json_encode($this->model->dw_get_active_kkcar_device($userid), JSON_UNESCAPED_UNICODE);
+        echo json_encode($this->model->dw_get_active_kkiot_device($userid), JSON_UNESCAPED_UNICODE);
     }
 }

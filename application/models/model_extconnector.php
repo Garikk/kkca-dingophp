@@ -30,11 +30,11 @@ class model_extconnector extends Model {
                 . "  WHERE "
                 . "     direction=1 "
                 . "     AND "
-                . "     kkcar_id = "
+                . "     kkiot_id = "
                 . "     (SELECT "
                 . "         kkiot.id "
                 . "      FROM "
-                . "         kkcar "
+                . "         kkiot "
                 . "      WHERE "
                 . "         kkiot.uuid='".$MyID."')"
                 . "   AND "
@@ -44,7 +44,7 @@ class model_extconnector extends Model {
                 . " RETURNING "
                 . "  pinmessage, "
                 . "    pinid, "
-                . "    kkcar_id, "
+                . "    kkiot_id, "
                 . "    status");
 
 
@@ -65,7 +65,7 @@ class model_extconnector extends Model {
                 . "     pinid,"
                 . "     pindata,"
                 . "     status"
-                . "     kkcar_conf_id"
+                . "     kkiot_conf_id"
                 . "    ) "
                 . "     VALUES ("
                 . "    ". $ReqTS .","
@@ -76,7 +76,7 @@ class model_extconnector extends Model {
                 . "    (SELECT "
                 . "         kkiot.activeconfiguration "
                 . "      FROM "
-                . "         kkcar "
+                . "         kkiot "
                 . "      WHERE "
                 . "         kkiot.uuid='".$MyID."')"
                 . "    ) ");

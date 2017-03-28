@@ -81,8 +81,8 @@ function dbr_FillInfoCharts(Data)
     var date = new Date();
     Data.forEach(function (item, i, arr) {
         date.setTime(item['timestamp'] * 1000);
-        DatForChart.push({'period': date.toLocaleDateString(), kkcar: item['value']});
-        ItemName[0] = "kkcar";
+        DatForChart.push({'period': date.toLocaleDateString(), kkiot: item['value']});
+        ItemName[0] = "kkiot";
         ItemName2[0] = item['name'];
     });
     Morris.Area({

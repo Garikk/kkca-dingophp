@@ -25,12 +25,12 @@ class model_weblink extends Model {
         
         return $this->dbc->ExecQuery(
                         "SELECT"
-                            . " kkiot.uuid AS kkcaruuid,"
+                            . " kkiot.uuid AS kkiotuuid,"
                             . " configurations.uuid AS confuuid,"
                             . " configurations.stamp AS confstamp, "
                             . " system_state.kkcontroller_version as kkcontroller_version,"
                             . " system_state.base_version as base_version "
-                        . " FROM kkcar "
+                        . " FROM kkiot "
                             . " INNER JOIN configurations"
                             . " ON (configurations.id=kkiot.activeconfiguration)"
                             . " INNER JOIN system_state ON (system_state.state=1)"
@@ -52,7 +52,7 @@ class model_weblink extends Model {
                         ."  FROM "
                         ."      configurations "
                         ."  INNER JOIN"
-                        ."      kkcar"
+                        ."      kkiot"
                         ."  ON "
                         ."      (kkiot.id=configurations.id) "
                         ."  WHERE "
