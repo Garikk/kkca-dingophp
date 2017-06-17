@@ -1,45 +1,86 @@
-<script src="/js/kk.config.js" type="text/javascript"></script>
-<link rel="stylesheet" href="/js/jointjs/joint.css" />
-<script src="/js/jointjs/joint.min.js"></script>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Управление</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Параметры
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td>Название:</td>
+                                    <td>Chrysler Car</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Конфигурация:</td>
+                                    <td>Test</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>ОС:</td>
+                                    <td>Linux</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Нужно обновление:</td>
+                                    <td>Да</td>
+                                </tr>
+                                  <tr class="even gradeC">
+                                    <td>Статус:</td>
+                                    <td>Ok</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+              <div class="col-lg-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Управление
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <tbody>
+                                <tr class="odd gradeX">
+                                    <td>Название:</td>
+                                    <td>Chrysler Car</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Конфигурация:</td>
+                                    <td>Test</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>ОС:</td>
+                                    <td>Linux</td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>Нужно обновление:</td>
+                                    <td>Да</td>
+                                </tr>
+                                  <tr class="even gradeC">
+                                    <td>Статус:</td>
+                                    <td>Ok</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+          
+        </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        InitConfigEditor();
-    })</script>
-<div>
-    <h1>Автомобиль</h1>
-</div>
-
-<div id="kk_config_main">
-    <div id="kk_config_config_features">
-        <select id="kk_config_configuration_features_selector" onchange="LoadFeatureToEditor(this.selectedIndex)"></select>
-        <button id="kk_config_configuration_button_save" >Сохранить</button>
-        <button id="kk_config_configuration_button_refresh" onclick="LoadCurrentFeatureToEditor()">Обновить</button>
     </div>
-    <div id="kk_config_plugin_editor_overlay" class="popup_overlay">
-        <div id="kk_config_plugin_editor_linkprop" class="popup">
-            Плагин:
-            <h3 id="kk_config_plugineditor_pluginname">plugin_name</h2>
-                <h4 id="kk_config_plugineditor_plugindescription">plugin_description</h2>
-                    Соединения:
-                    <div id="kk_config_plugineditor_connections">
-                        <div id="kk_config_plugineditor_connection">
-                            <p class="pconnection_name">conn</p>
-                            <p class="pconnection_targetplugin">conn_pl</p>
-                            <ul class="pconnection_targetpins">
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <select id="kk_config_plugin_editor_linkprop_linktype"></select>
-                    <button onclick="CloseLinkProperty()">Ok</button>
-                    </div>
-                    </div>
-
-                    <div id="kk_config_plugin_editor">
-
-                    </div>
-
-
-                    </div>
+</div>
