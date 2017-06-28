@@ -9,7 +9,7 @@
 /**
  * Description of kkcontroller
  *
- * @author blinov_is
+ * @author Garikk
  */
 include "application/models/model_configuration.php";
 include "application/models/model_diagnostic.php";

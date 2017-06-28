@@ -9,7 +9,7 @@
 /**
  * Description of kkcontroller
  *
- * @author blinov_is
+ * @author Garikk
  */
 class Controller_extconnector extends wservice {
 

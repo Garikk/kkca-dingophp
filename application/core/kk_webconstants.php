@@ -9,7 +9,7 @@
 /**
  * Description of kk_constants
  *
- * @author blinov_is
+ * @author Garikk
  */
 //ACTIONS
 //KKController

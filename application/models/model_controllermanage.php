@@ -9,7 +9,7 @@
 /**
  * Description of model_kkcontroller
  *
- * @author blinov_is
+ * @author Garikk
  */
 class model_controllermanage extends Model {
 

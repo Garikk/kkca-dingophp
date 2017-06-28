@@ -9,7 +9,7 @@
 /**
  * Description of wservice
  *
- * @author blinov_is
+ * @author Garikk
  */
 
 class wservice{

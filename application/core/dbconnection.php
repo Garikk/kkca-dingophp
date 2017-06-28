@@ -9,7 +9,7 @@
 /**
  * Description of dbconnection
  *
- * @author blinov_is
+ * @author Garikk
  */
 class dbconnection {
     private $dbconn;

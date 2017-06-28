@@ -11,7 +11,7 @@
  *
  * @author Garikk
  */
-class model_phoneapp extends Model {
+class model_mplayer extends Model {
 
     function __construct() {
         $this->dbc = new dbconnection();
@@ -20,5 +20,7 @@ class model_phoneapp extends Model {
     public function get_data() {
         
     }
+
+    
 
 }
