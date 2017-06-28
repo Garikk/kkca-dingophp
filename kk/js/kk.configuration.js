@@ -1,7 +1,5 @@
-<?php
-
 /* 
- * Copyright (C) 2017 blinov_is.
+ * Copyright (C) 2017 Garikk.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,16 +17,28 @@
  * MA 02110-1301  USA
  */
 
-class Controller_managectrlr extends Controller {
-    function __construct() {
-        //	$this->model = new Model_Portfolio();
-        $this->view = new View();
-        $this->model = new model_managectrlr();
-    }
 
-    function action_index() {
-        //$data = $this->model->get_data();		
-        $this->view->generate('managectrlr_view.php', 'template_view.php', null);
-    }
+function cnf_OnLoad()
+{
+    //cnf_request_ConfState();
+    cnf_request_LogInfo();
+    
+    
+}
 
+function cnf_request_LogInfo()
+{
+        $.getJSON('/configuration/cnf_get_loginfo/', function (Data) {
+        cnf_fill_loginfo(Data);
+    });
+    
+}
+
+function cnf_fill_loginfo(data)
+{
+     $("#table_conflog_tb").empty();
+        data.forEach(function (item, i, arr) {
+        var tr="<td class='odd'>"+item['timestamp']+"</td><td class='odd'>"+item['name']+"</td><td class='odd'>"+item['message']+"</td>";
+        $('#table_conflog_tb').append(tr)
+      });
 }

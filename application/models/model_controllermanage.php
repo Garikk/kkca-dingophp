@@ -11,7 +11,7 @@
  *
  * @author blinov_is
  */
-class model_managectrlr extends Model {
+class model_controllermanage extends Model {
 
     function __construct() {
         $this->dbc = new dbconnection();
